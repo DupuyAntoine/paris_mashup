@@ -3,7 +3,7 @@ package sparqlclient;
 public class SparqlFilmParis {
 
 	public static void main(String[] args) {
-        SparqlClient sparqlClient = new SparqlClient("127.0.0.1:3030/");
+        SparqlClient sparqlClient = new SparqlClient("localhost:3030");
 
         String query = "ASK WHERE { ?s ?p ?o }";
         boolean serverIsUp = sparqlClient.ask(query);
