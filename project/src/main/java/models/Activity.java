@@ -10,11 +10,8 @@ public class Activity extends Model {
     @CsvBindByName(column = "Code postal")
 	private String postalCode;
 
-    @CsvBindByName(column = "Prix")
-	private String price;
-    
     @CsvBindByName(column = "Accès PMR")
-	private String access_srm;
+	private String accessSrm;
     
 	public String getLabel() {
 		return label;
@@ -32,4 +29,16 @@ public class Activity extends Model {
 		this.postalCode = postalCode;
 	}
 
+	public String getAccessSrm() {
+		return accessSrm;
+	}
+
+	public void setAccessSrm(String accessSrm) {
+		this.accessSrm = accessSrm;
+	}
+
+	public String toString() {
+		return accessSrm;
+	}
+	
 }

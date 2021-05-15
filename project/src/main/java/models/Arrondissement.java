@@ -38,7 +38,7 @@ public class Arrondissement extends Model {
 	}
 	
 	public String toString() {
-		return this.label;
+		return label;
 	}
 
 }
