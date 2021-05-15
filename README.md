@@ -8,6 +8,7 @@ Une fois le genre renseigné sur l’application, celle-ci va faire une liste de
 
 L’application propose ensuite à l’utilisateur quelques lieux à visiter dans cet arrondissement.
 
+
 ## Sources
 
 Nous retrouverons dans nos sources la liste des films/séries tournés à Paris (ne contient pas le genre du film) que nous croiserons avec une base de données du type IMDb afin de récupérer le genre du film en fonction du titre, réalisateur et année de tournage.
@@ -25,6 +26,7 @@ Que faire à Paris :
 https://opendata.paris.fr/explore/dataset/que-faire-a-paris-/information/?disjunctive.category&disjunctive.tags&disjunctive.address_name&disjunctive.address_zipcode&disjunctive.address_city&disjunctive.access_type&disjunctive.price_type
 
 IMDb (données sur les films) : https://www.imdb.com/
+
 
 ## Ontologie
 
