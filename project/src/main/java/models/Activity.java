@@ -24,6 +24,9 @@ public class Activity extends Model {
     
     @CsvBindByName(column = "URL")
 	private String url;
+    
+    @CsvBindByName(column = "URL de l'image")
+    private String imageUrl;
 
 	public String getLabel() {
 		return label;
@@ -79,6 +82,14 @@ public class Activity extends Model {
 
 	public void setUrl(String url) {
 		this.url = url;
+	}
+
+	public String getImageUrl() {
+		return imageUrl;
+	}
+
+	public void setImageUrl(String imageUrl) {
+		this.imageUrl = imageUrl;
 	}
 
 	public String toString() {
