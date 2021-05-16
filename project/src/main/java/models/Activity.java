@@ -16,6 +16,9 @@ public class Activity extends Model {
     @CsvBindByName(column = "Accès PMR")
 	private String accessSrm;
     
+    @CsvBindByName(column = "Catégorie")
+	private String category;
+    
     @CsvBindByName(column = "Accès mal voyant")
 	private String accessMv;
     
@@ -102,7 +105,15 @@ public class Activity extends Model {
 	public void setStartDate(String startDate) {
 		this.startDate = startDate;
 	}
-	
+
+	public String getCategory() {
+		return category;
+	}
+
+	public void setCategory(String category) {
+		this.category = category;
+	}
+
 	public String toString() {
 		return label + " " + url + " --- " + priceType;
 	}
