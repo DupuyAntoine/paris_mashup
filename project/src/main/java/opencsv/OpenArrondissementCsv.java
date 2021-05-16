@@ -33,7 +33,7 @@ public class OpenArrondissementCsv {
 
 	public static void main(String[] args) throws IOException {
 		
-		String filename = "C:\\Users\\adupu\\Documents\\Master\\M2\\WebSemantique\\Projet\\project\\src\\main\\resources\\csv\\arrondissements.csv";
+		String filename = "src\\main\\resources\\csv\\arrondissements.csv";
 		
 		List<Arrondissement> beans = new CsvToBeanBuilder<Arrondissement>(new FileReader(filename)).withType(Arrondissement.class).build().parse();
 

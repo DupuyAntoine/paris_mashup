@@ -33,7 +33,7 @@ public class OpenActivityCsv {
 
 	public static void main(String[] args) throws IOException {
 		
-		String filename = "C:\\Users\\adupu\\Documents\\Master\\M2\\WebSemantique\\Projet\\project\\src\\main\\resources\\csv\\que-faire-a-paris-.csv";
+		String filename = "src\\main\\resources\\csv\\que-faire-a-paris-.csv";
 		
 		List<Activity> beans = new CsvToBeanBuilder<Activity>(new FileReader(filename)).withSeparator(';').withType(Activity.class).build().parse();
 

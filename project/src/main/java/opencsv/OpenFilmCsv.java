@@ -33,7 +33,7 @@ public class OpenFilmCsv {
 
 	public static void main(String[] args) throws IOException {
 		
-		String filename = "C:\\Users\\adupu\\Documents\\Master\\M2\\WebSemantique\\Projet\\project\\src\\main\\resources\\csv\\films_paris_tries.csv";
+		String filename = "src\\main\\resources\\csv\\films_paris_tries.csv";
 		
 		List<Film> beans = new CsvToBeanBuilder<Film>(new FileReader(filename)).withType(Film.class).build().parse();
 
