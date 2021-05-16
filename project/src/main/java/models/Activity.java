@@ -38,7 +38,7 @@ public class Activity extends Model {
 	}
 
 	public String toString() {
-		return accessSrm;
+		return label;
 	}
 	
 }
