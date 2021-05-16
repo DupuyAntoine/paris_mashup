@@ -128,12 +128,11 @@ public class SparqlClient {
             List<NameValuePair> nvps = new ArrayList<NameValuePair>();
             nvps.add(new BasicNameValuePair("update", queryString));
             httpPost.setEntity(new UrlEncodedFormEntity(nvps));
+            httpPost.setEntity(new UrlEncodedFormEntity(nvps,"UTF-8"));
             HttpResponse response2 = httpclient.execute(httpPost);
 
             try {
                 HttpEntity entity2 = response2.getEntity();
-                // do something useful with the response body
-                // and ensure it is fully consumed
                 EntityUtils.consume(entity2);
             } finally {
                 httpPost.releaseConnection();

@@ -1,13 +1,15 @@
 package sparqlclient;
 
+import java.io.IOException;
 import java.util.Map;
 
 public class SparqlClientExample {
 
     /**
      * @param args the command line arguments
+     * @throws IOException 
      */
-    public static void main(String args[]) {
+    public static void main(String args[]) throws IOException {
         SparqlClient sparqlClient = new SparqlClient("192.168.250.91:8080/sparqluedo");
 
         String query = "ASK WHERE { ?s ?p ?o }";
