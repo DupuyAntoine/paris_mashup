@@ -1,5 +1,8 @@
 package models;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import com.opencsv.bean.CsvBindByName;
 
 public class Film extends Model {
@@ -9,6 +12,8 @@ public class Film extends Model {
 	
     @CsvBindByName(column = "Code postal")
 	private String postalCode;
+    
+    private List<Genre> genres = new ArrayList<Genre>();
 
 	public String getLabel() {
 		return label;
@@ -28,6 +33,18 @@ public class Film extends Model {
 	
 	public String toString() {
 		return label;
+	}
+
+	public List<Genre> getGenres() {
+		return genres;
+	}
+
+	public void setGenres(List<Genre> genres) {
+		this.genres = genres;
+	}
+	
+	public void addGenre(Genre genre) {
+		this.genres.add(genre);
 	}
 
 }
