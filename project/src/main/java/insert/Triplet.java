@@ -37,7 +37,7 @@ public class Triplet {
 	}
 	
 	public String toString() {
-		return sujet + ":" + predicat + ":" + objet;
+		return sujet + " ---- " + predicat + " ---- " + objet;
 	}
 
 }

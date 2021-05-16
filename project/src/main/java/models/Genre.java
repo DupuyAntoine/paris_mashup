@@ -1,6 +1,6 @@
 package models;
 
-public class Genre {
+public class Genre extends Model {
 
 	private String label;
 

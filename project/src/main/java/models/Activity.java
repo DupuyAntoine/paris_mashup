@@ -22,6 +22,9 @@ public class Activity extends Model {
     @CsvBindByName(column = "Accès mal voyant")
 	private String accessMv;
     
+    @CsvBindByName(column = "Accès mal entendant")
+	private String accessMe;
+
     @CsvBindByName(column = "Type de prix")
 	private String priceType;
 
@@ -115,7 +118,15 @@ public class Activity extends Model {
 	}
 
 	public String toString() {
-		return label + " " + url + " --- " + priceType;
+		return label + " " + url + " --- " + priceType + " --- " + category;
+	}
+
+	public String getAccessMe() {
+		return accessMe;
+	}
+
+	public void setAccessMe(String accessMe) {
+		this.accessMe = accessMe;
 	}
 
 }

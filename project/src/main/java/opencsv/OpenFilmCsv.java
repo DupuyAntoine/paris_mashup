@@ -3,11 +3,14 @@ package opencsv;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
+import java.util.HashMap;
 import java.util.List;
 
 import com.opencsv.bean.CsvToBeanBuilder;
 
 import models.Film;
+import models.Genre;
+import omdb.OMDBProxy;
 
 public class OpenFilmCsv {
 	
@@ -27,7 +30,20 @@ public class OpenFilmCsv {
 	
 	public List<Film> readCsvFilm() throws IllegalStateException, FileNotFoundException {
 		
-		return new CsvToBeanBuilder<Film>(new FileReader(this.filepath)).withType(Film.class).build().parse();
+		OMDBProxy omdbProxy = new OMDBProxy();
+		
+		List<Film> films = new CsvToBeanBuilder<Film>(new FileReader(this.filepath)).withSeparator(';').withType(Film.class).build().parse();
+		for (Film f : films) {
+			HashMap<String, String> film_info = omdbProxy.getMoviePreciseInfos(f.getLabel().toLowerCase());
+			if (!film_info.isEmpty()) {
+				for (String s : film_info.get("Genre").split(", ")) {
+					System.out.println(s);
+					f.addGenre(new Genre(s.toLowerCase()));
+				}
+			}
+
+		}
+		return films;
 		
 	}
 

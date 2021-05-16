@@ -68,6 +68,11 @@
                 rdfs:label "a pour adresse"@fr .
 
 
+###  http://www.semanticweb.org/colettedupuy/ontologies/2021/film_paris#a_pour_catégorie
+:a_pour_catégorie rdf:type owl:DatatypeProperty ;
+                  rdfs:label "a pour catégorie" .
+
+
 ###  http://www.semanticweb.org/colettedupuy/ontologies/2021/film_paris#a_pour_code_postal
 :a_pour_code_postal rdf:type owl:DatatypeProperty ;
                     rdfs:domain :activite ,
@@ -85,6 +90,13 @@
             rdfs:label "a pour nom" .
 
 
+###  http://www.semanticweb.org/colettedupuy/ontologies/2021/film_paris#a_pour_type_accès
+:a_pour_type_accès rdf:type owl:DatatypeProperty ;
+                   rdfs:domain :activite ;
+                   rdfs:range xsd:string ;
+                   rdfs:label "a pour type d'accès" .
+
+
 ###  http://www.semanticweb.org/colettedupuy/ontologies/2021/film_paris#a_pour_type_de_prix
 :a_pour_type_de_prix rdf:type owl:DatatypeProperty ;
                      rdfs:domain :activite ;
@@ -99,17 +111,24 @@
             rdfs:label "a pour url" .
 
 
+###  http://www.semanticweb.org/colettedupuy/ontologies/2021/film_paris#a_pour_url_image
+:a_pour_url_image rdf:type owl:DatatypeProperty ;
+                  rdfs:domain :activite ;
+                  rdfs:range xsd:string ;
+                  rdfs:label "a pour url d'image" .
+
+
 ###  http://www.semanticweb.org/colettedupuy/ontologies/2021/film_paris#a_un_accès_PMR
 :a_un_accès_PMR rdf:type owl:DatatypeProperty ;
                 rdfs:domain :activite ;
-                rdfs:range xsd:boolean ;
+                rdfs:range xsd:string ;
                 rdfs:label "a un accès PMR" .
 
 
 ###  http://www.semanticweb.org/colettedupuy/ontologies/2021/film_paris#a_un_accès_mal_entendant
 :a_un_accès_mal_entendant rdf:type owl:DatatypeProperty ;
                           rdfs:domain :activite ;
-                          rdfs:range xsd:boolean ;
+                          rdfs:range xsd:string ;
                           rdfs:label "a un accès mal entendant" .
 
 
@@ -117,22 +136,8 @@
 :a_un_accès_mal_voyant rdf:type owl:DatatypeProperty ;
                        rdfs:subPropertyOf owl:topDataProperty ;
                        rdfs:domain :activite ;
-                       rdfs:range xsd:boolean ;
+                       rdfs:range xsd:string ;
                        rdfs:label "a un accès mal voyant" .
-
-
-###  http://www.semanticweb.org/colettedupuy/ontologies/2021/film_paris#a_pour_type_d'accès
-<http://www.semanticweb.org/colettedupuy/ontologies/2021/film_paris#a_pour_type_d'accès> rdf:type owl:DatatypeProperty ;
-                                                                                         rdfs:domain :activite ;
-                                                                                         rdfs:range xsd:string ;
-                                                                                         rdfs:label "a pour type d'accès" .
-
-
-###  http://www.semanticweb.org/colettedupuy/ontologies/2021/film_paris#a_pour_url_d'image
-<http://www.semanticweb.org/colettedupuy/ontologies/2021/film_paris#a_pour_url_d'image> rdf:type owl:DatatypeProperty ;
-                                                                                        rdfs:domain :activite ;
-                                                                                        rdfs:range xsd:string ;
-                                                                                        rdfs:label "a pour url d'image" .
 
 
 #################################################################
@@ -683,6 +688,7 @@
 ###  http://www.semanticweb.org/colettedupuy/ontologies/2021/film_paris#drame
 :drame rdf:type owl:NamedIndividual ,
                 :genre ;
+       rdfs:comment "drama" ;
        rdfs:label "drame"@fr .
 
 
