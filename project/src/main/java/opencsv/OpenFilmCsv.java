@@ -35,7 +35,7 @@ public class OpenFilmCsv {
 		
 		String filename = "src\\main\\resources\\csv\\films_paris_tries.csv";
 		
-		List<Film> beans = new CsvToBeanBuilder<Film>(new FileReader(filename)).withType(Film.class).build().parse();
+		List<Film> beans = new CsvToBeanBuilder<Film>(new FileReader(filename)).withSeparator(';').withType(Film.class).build().parse();
 
         beans.forEach(System.out::println);
 
