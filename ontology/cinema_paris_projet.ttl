@@ -1,0 +1,827 @@
+@prefix : <http://www.semanticweb.org/colettedupuy/ontologies/2021/film_paris#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix xml: <http://www.w3.org/XML/1998/namespace> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@base <http://www.semanticweb.org/colettedupuy/ontologies/2021/film_paris> .
+
+<http://www.semanticweb.org/colettedupuy/ontologies/2021/film_paris> rdf:type owl:Ontology .
+
+#################################################################
+#    Object Properties
+#################################################################
+
+###  http://www.semanticweb.org/colettedupuy/ontologies/2021/film_paris#a_ete_tourne_a
+:a_ete_tourne_a rdf:type owl:ObjectProperty ,
+                         owl:TransitiveProperty ;
+                rdfs:domain :film ;
+                rdfs:range :lieu ;
+                rdfs:label "a été tourné à"@fr .
+
+
+###  http://www.semanticweb.org/colettedupuy/ontologies/2021/film_paris#a_lieu_a
+:a_lieu_a rdf:type owl:ObjectProperty ;
+          rdfs:domain :activite ;
+          rdfs:range :lieu ;
+          owl:propertyChainAxiom ( :a_lieu_a
+                                   :se_situe_a
+                                 ) ;
+          rdfs:label "a lieu à"@fr .
+
+
+###  http://www.semanticweb.org/colettedupuy/ontologies/2021/film_paris#est_classe_comme
+:est_classe_comme rdf:type owl:ObjectProperty ;
+                  rdfs:domain :film ;
+                  rdfs:range :genre ;
+                  rdfs:label "est classé comme"@fr .
+
+
+###  http://www.semanticweb.org/colettedupuy/ontologies/2021/film_paris#est_de_type
+:est_de_type rdf:type owl:ObjectProperty ;
+             rdfs:label "est de type" .
+
+
+###  http://www.semanticweb.org/colettedupuy/ontologies/2021/film_paris#se_situe_a
+:se_situe_a rdf:type owl:ObjectProperty ,
+                     owl:TransitiveProperty ;
+            rdfs:domain :lieu ;
+            rdfs:range :lieu ;
+            rdfs:label "se situe à"@fr .
+
+
+#################################################################
+#    Data properties
+#################################################################
+
+###  http://www.semanticweb.org/colettedupuy/ontologies/2021/film_paris#a_lieu_a_partir_du
+:a_lieu_a_partir_du rdf:type owl:DatatypeProperty ;
+                    rdfs:domain :activite ;
+                    rdfs:range xsd:dateTime ;
+                    rdfs:label "a lieu à partir du"@fr .
+
+
+###  http://www.semanticweb.org/colettedupuy/ontologies/2021/film_paris#a_pour_adresse
+:a_pour_adresse rdf:type owl:DatatypeProperty ;
+                rdfs:domain :activite ;
+                rdfs:range xsd:string ;
+                rdfs:label "a pour adresse"@fr .
+
+
+###  http://www.semanticweb.org/colettedupuy/ontologies/2021/film_paris#a_pour_code_postal
+:a_pour_code_postal rdf:type owl:DatatypeProperty ;
+                    rdfs:domain :activite ,
+                                :arrondissement ,
+                                :film ,
+                                :ville ;
+                    rdfs:range xsd:string ;
+                    rdfs:label "a pour code postal"@fr .
+
+
+###  http://www.semanticweb.org/colettedupuy/ontologies/2021/film_paris#a_pour_nom
+:a_pour_nom rdf:type owl:DatatypeProperty ;
+            rdfs:domain :arrondissement ;
+            rdfs:range xsd:string ;
+            rdfs:label "a pour nom" .
+
+
+###  http://www.semanticweb.org/colettedupuy/ontologies/2021/film_paris#a_pour_type_de_prix
+:a_pour_type_de_prix rdf:type owl:DatatypeProperty ;
+                     rdfs:domain :activite ;
+                     rdfs:range xsd:string ;
+                     rdfs:label "a pour type de prix"@fr .
+
+
+###  http://www.semanticweb.org/colettedupuy/ontologies/2021/film_paris#a_pour_url
+:a_pour_url rdf:type owl:DatatypeProperty ;
+            rdfs:domain :activite ;
+            rdfs:range xsd:string ;
+            rdfs:label "a pour url" .
+
+
+###  http://www.semanticweb.org/colettedupuy/ontologies/2021/film_paris#a_un_accès_PMR
+:a_un_accès_PMR rdf:type owl:DatatypeProperty ;
+                rdfs:domain :activite ;
+                rdfs:range xsd:boolean ;
+                rdfs:label "a un accès PMR" .
+
+
+###  http://www.semanticweb.org/colettedupuy/ontologies/2021/film_paris#a_un_accès_mal_entendant
+:a_un_accès_mal_entendant rdf:type owl:DatatypeProperty ;
+                          rdfs:domain :activite ;
+                          rdfs:range xsd:boolean ;
+                          rdfs:label "a un accès mal entendant" .
+
+
+###  http://www.semanticweb.org/colettedupuy/ontologies/2021/film_paris#a_un_accès_mal_voyant
+:a_un_accès_mal_voyant rdf:type owl:DatatypeProperty ;
+                       rdfs:subPropertyOf owl:topDataProperty ;
+                       rdfs:domain :activite ;
+                       rdfs:range xsd:boolean ;
+                       rdfs:label "a un accès mal voyant" .
+
+
+###  http://www.semanticweb.org/colettedupuy/ontologies/2021/film_paris#a_pour_type_d'accès
+<http://www.semanticweb.org/colettedupuy/ontologies/2021/film_paris#a_pour_type_d'accès> rdf:type owl:DatatypeProperty ;
+                                                                                         rdfs:domain :activite ;
+                                                                                         rdfs:range xsd:string ;
+                                                                                         rdfs:label "a pour type d'accès" .
+
+
+###  http://www.semanticweb.org/colettedupuy/ontologies/2021/film_paris#a_pour_url_d'image
+<http://www.semanticweb.org/colettedupuy/ontologies/2021/film_paris#a_pour_url_d'image> rdf:type owl:DatatypeProperty ;
+                                                                                        rdfs:domain :activite ;
+                                                                                        rdfs:range xsd:string ;
+                                                                                        rdfs:label "a pour url d'image" .
+
+
+#################################################################
+#    Classes
+#################################################################
+
+###  http://www.semanticweb.org/colettedupuy/ontologies/2021/film_paris#activite
+:activite rdf:type owl:Class ;
+          rdfs:comment "activity"@en ;
+          rdfs:label "activité"@fr .
+
+
+###  http://www.semanticweb.org/colettedupuy/ontologies/2021/film_paris#animation
+:animation rdf:type owl:Class ;
+           owl:equivalentClass [ owl:intersectionOf ( :activite
+                                                      [ rdf:type owl:Restriction ;
+                                                        owl:onProperty :est_de_type ;
+                                                        owl:hasValue :animation
+                                                      ]
+                                                    ) ;
+                                 rdf:type owl:Class
+                               ] ;
+           rdfs:subClassOf :activite ;
+           owl:disjointWith :concert ,
+                            :evenement ,
+                            :exposition ,
+                            :spectacle .
+
+
+###  http://www.semanticweb.org/colettedupuy/ontologies/2021/film_paris#arrondissement
+:arrondissement rdf:type owl:Class ;
+                rdfs:subClassOf :lieu ;
+                owl:disjointWith :ville ;
+                rdfs:label "arrondissement"@fr .
+
+
+###  http://www.semanticweb.org/colettedupuy/ontologies/2021/film_paris#concert
+:concert rdf:type owl:Class ;
+         owl:equivalentClass [ owl:intersectionOf ( :activite
+                                                    [ rdf:type owl:Restriction ;
+                                                      owl:onProperty :est_de_type ;
+                                                      owl:hasValue :concert
+                                                    ]
+                                                  ) ;
+                               rdf:type owl:Class
+                             ] ;
+         rdfs:subClassOf :activite ;
+         owl:disjointWith :evenement ,
+                          :exposition ,
+                          :spectacle .
+
+
+###  http://www.semanticweb.org/colettedupuy/ontologies/2021/film_paris#evenement
+:evenement rdf:type owl:Class ;
+           owl:equivalentClass [ owl:intersectionOf ( :activite
+                                                      [ rdf:type owl:Restriction ;
+                                                        owl:onProperty :est_de_type ;
+                                                        owl:hasValue :événement
+                                                      ]
+                                                    ) ;
+                                 rdf:type owl:Class
+                               ] ;
+           rdfs:subClassOf :activite ;
+           owl:disjointWith :exposition ,
+                            :spectacle ;
+           rdfs:label "événement"@fr .
+
+
+###  http://www.semanticweb.org/colettedupuy/ontologies/2021/film_paris#exposition
+:exposition rdf:type owl:Class ;
+            owl:equivalentClass [ owl:intersectionOf ( :activite
+                                                       [ rdf:type owl:Restriction ;
+                                                         owl:onProperty :est_de_type ;
+                                                         owl:hasValue :exposition
+                                                       ]
+                                                     ) ;
+                                  rdf:type owl:Class
+                                ] ;
+            rdfs:subClassOf :activite ;
+            owl:disjointWith :spectacle .
+
+
+###  http://www.semanticweb.org/colettedupuy/ontologies/2021/film_paris#film
+:film rdf:type owl:Class ;
+      rdfs:label "film"@fr ,
+                 "movie"@en .
+
+
+###  http://www.semanticweb.org/colettedupuy/ontologies/2021/film_paris#film_action
+:film_action rdf:type owl:Class ;
+             owl:equivalentClass [ owl:intersectionOf ( :film
+                                                        [ rdf:type owl:Restriction ;
+                                                          owl:onProperty :est_classe_comme ;
+                                                          owl:hasValue :action
+                                                        ]
+                                                      ) ;
+                                   rdf:type owl:Class
+                                 ] ;
+             rdfs:subClassOf :film ;
+             rdfs:label "film d'action"@fr .
+
+
+###  http://www.semanticweb.org/colettedupuy/ontologies/2021/film_paris#film_actualite
+:film_actualite rdf:type owl:Class ;
+                owl:equivalentClass [ owl:intersectionOf ( :film
+                                                           [ rdf:type owl:Restriction ;
+                                                             owl:onProperty :est_classe_comme ;
+                                                             owl:hasValue :actualite
+                                                           ]
+                                                         ) ;
+                                      rdf:type owl:Class
+                                    ] ;
+                rdfs:subClassOf :film ;
+                rdfs:label "film d'actualité"@fr .
+
+
+###  http://www.semanticweb.org/colettedupuy/ontologies/2021/film_paris#film_aventure
+:film_aventure rdf:type owl:Class ;
+               owl:equivalentClass [ owl:intersectionOf ( :film
+                                                          [ rdf:type owl:Restriction ;
+                                                            owl:onProperty :est_classe_comme ;
+                                                            owl:hasValue :aventure
+                                                          ]
+                                                        ) ;
+                                     rdf:type owl:Class
+                                   ] ;
+               rdfs:subClassOf :film ;
+               rdfs:label "film d'aventure"@fr .
+
+
+###  http://www.semanticweb.org/colettedupuy/ontologies/2021/film_paris#film_biographique
+:film_biographique rdf:type owl:Class ;
+                   owl:equivalentClass [ owl:intersectionOf ( :film
+                                                              [ rdf:type owl:Restriction ;
+                                                                owl:onProperty :est_classe_comme ;
+                                                                owl:hasValue :biographie
+                                                              ]
+                                                            ) ;
+                                         rdf:type owl:Class
+                                       ] ;
+                   rdfs:subClassOf :film ;
+                   rdfs:label "film biographique"@fr .
+
+
+###  http://www.semanticweb.org/colettedupuy/ontologies/2021/film_paris#film_catastrophe
+:film_catastrophe rdf:type owl:Class ;
+                  owl:equivalentClass [ owl:intersectionOf ( :film
+                                                             [ rdf:type owl:Restriction ;
+                                                               owl:onProperty :est_classe_comme ;
+                                                               owl:hasValue :catastrophe
+                                                             ]
+                                                           ) ;
+                                        rdf:type owl:Class
+                                      ] ;
+                  rdfs:subClassOf :film ;
+                  rdfs:label "film catastrophe"@fr .
+
+
+###  http://www.semanticweb.org/colettedupuy/ontologies/2021/film_paris#film_comique
+:film_comique rdf:type owl:Class ;
+              owl:equivalentClass [ owl:intersectionOf ( :film
+                                                         [ rdf:type owl:Restriction ;
+                                                           owl:onProperty :est_classe_comme ;
+                                                           owl:hasValue :comedie
+                                                         ]
+                                                       ) ;
+                                    rdf:type owl:Class
+                                  ] ;
+              rdfs:subClassOf :film ;
+              rdfs:label "film comique"@fr .
+
+
+###  http://www.semanticweb.org/colettedupuy/ontologies/2021/film_paris#film_criminel
+:film_criminel rdf:type owl:Class ;
+               owl:equivalentClass [ owl:intersectionOf ( :film
+                                                          [ rdf:type owl:Restriction ;
+                                                            owl:onProperty :est_classe_comme ;
+                                                            owl:hasValue :criminel
+                                                          ]
+                                                        ) ;
+                                     rdf:type owl:Class
+                                   ] ;
+               rdfs:subClassOf :film ;
+               rdfs:label "film criminel"@fr .
+
+
+###  http://www.semanticweb.org/colettedupuy/ontologies/2021/film_paris#film_documentaire
+:film_documentaire rdf:type owl:Class ;
+                   owl:equivalentClass [ owl:intersectionOf ( :film
+                                                              [ rdf:type owl:Restriction ;
+                                                                owl:onProperty :est_classe_comme ;
+                                                                owl:hasValue :documentaire
+                                                              ]
+                                                            ) ;
+                                         rdf:type owl:Class
+                                       ] ;
+                   rdfs:subClassOf :film ;
+                   rdfs:label "film documentaire"@fr .
+
+
+###  http://www.semanticweb.org/colettedupuy/ontologies/2021/film_paris#film_dramatique
+:film_dramatique rdf:type owl:Class ;
+                 owl:equivalentClass [ owl:intersectionOf ( :film
+                                                            [ rdf:type owl:Restriction ;
+                                                              owl:onProperty :est_classe_comme ;
+                                                              owl:hasValue :drame
+                                                            ]
+                                                          ) ;
+                                       rdf:type owl:Class
+                                     ] ;
+                 rdfs:subClassOf :film ;
+                 rdfs:label "film dramatique"@fr .
+
+
+###  http://www.semanticweb.org/colettedupuy/ontologies/2021/film_paris#film_familial
+:film_familial rdf:type owl:Class ;
+               owl:equivalentClass [ owl:intersectionOf ( :film
+                                                          [ rdf:type owl:Restriction ;
+                                                            owl:onProperty :est_classe_comme ;
+                                                            owl:hasValue :famille
+                                                          ]
+                                                        ) ;
+                                     rdf:type owl:Class
+                                   ] ;
+               rdfs:subClassOf :film ;
+               rdfs:label "film familial"@fr .
+
+
+###  http://www.semanticweb.org/colettedupuy/ontologies/2021/film_paris#film_fantastique
+:film_fantastique rdf:type owl:Class ;
+                  owl:equivalentClass [ owl:intersectionOf ( :film
+                                                             [ rdf:type owl:Restriction ;
+                                                               owl:onProperty :est_classe_comme ;
+                                                               owl:hasValue :fantastique
+                                                             ]
+                                                           ) ;
+                                        rdf:type owl:Class
+                                      ] ;
+                  rdfs:subClassOf :film ;
+                  rdfs:label "film fantastique"@fr .
+
+
+###  http://www.semanticweb.org/colettedupuy/ontologies/2021/film_paris#film_game_show
+:film_game_show rdf:type owl:Class ;
+                owl:equivalentClass [ owl:intersectionOf ( :film
+                                                           [ rdf:type owl:Restriction ;
+                                                             owl:onProperty :est_classe_comme ;
+                                                             owl:hasValue :game_show
+                                                           ]
+                                                         ) ;
+                                      rdf:type owl:Class
+                                    ] ;
+                rdfs:subClassOf :film ;
+                rdfs:label "film game show"@fr .
+
+
+###  http://www.semanticweb.org/colettedupuy/ontologies/2021/film_paris#film_guerre
+:film_guerre rdf:type owl:Class ;
+             owl:equivalentClass [ owl:intersectionOf ( :film
+                                                        [ rdf:type owl:Restriction ;
+                                                          owl:onProperty :est_classe_comme ;
+                                                          owl:hasValue :guerre
+                                                        ]
+                                                      ) ;
+                                   rdf:type owl:Class
+                                 ] ;
+             rdfs:subClassOf :film ;
+             rdfs:label "film de guerre"@fr .
+
+
+###  http://www.semanticweb.org/colettedupuy/ontologies/2021/film_paris#film_heroic_fantasy
+:film_heroic_fantasy rdf:type owl:Class ;
+                     owl:equivalentClass [ owl:intersectionOf ( :film
+                                                                [ rdf:type owl:Restriction ;
+                                                                  owl:onProperty :est_classe_comme ;
+                                                                  owl:hasValue :heroic_fantasy
+                                                                ]
+                                                              ) ;
+                                           rdf:type owl:Class
+                                         ] ;
+                     rdfs:subClassOf :film ;
+                     rdfs:label "film d'héroïc fantasy"@fr .
+
+
+###  http://www.semanticweb.org/colettedupuy/ontologies/2021/film_paris#film_historique
+:film_historique rdf:type owl:Class ;
+                 owl:equivalentClass [ owl:intersectionOf ( :film
+                                                            [ rdf:type owl:Restriction ;
+                                                              owl:onProperty :est_classe_comme ;
+                                                              owl:hasValue :historique
+                                                            ]
+                                                          ) ;
+                                       rdf:type owl:Class
+                                     ] ;
+                 rdfs:subClassOf :film ;
+                 rdfs:label "film historique"@fr .
+
+
+###  http://www.semanticweb.org/colettedupuy/ontologies/2021/film_paris#film_horreur
+:film_horreur rdf:type owl:Class ;
+              owl:equivalentClass [ owl:intersectionOf ( :film
+                                                         [ rdf:type owl:Restriction ;
+                                                           owl:onProperty :est_classe_comme ;
+                                                           owl:hasValue :horreur
+                                                         ]
+                                                       ) ;
+                                    rdf:type owl:Class
+                                  ] ;
+              rdfs:subClassOf :film ;
+              rdfs:label "film d'horreur"@fr .
+
+
+###  http://www.semanticweb.org/colettedupuy/ontologies/2021/film_paris#film_musical
+:film_musical rdf:type owl:Class ;
+              owl:equivalentClass [ owl:intersectionOf ( :film
+                                                         [ rdf:type owl:Restriction ;
+                                                           owl:onProperty :est_classe_comme ;
+                                                           owl:hasValue :musique
+                                                         ]
+                                                       ) ;
+                                    rdf:type owl:Class
+                                  ] ;
+              rdfs:subClassOf :film ;
+              rdfs:label "film musical"@fr .
+
+
+###  http://www.semanticweb.org/colettedupuy/ontologies/2021/film_paris#film_mystere
+:film_mystere rdf:type owl:Class ;
+              owl:equivalentClass [ owl:intersectionOf ( :film
+                                                         [ rdf:type owl:Restriction ;
+                                                           owl:onProperty :est_classe_comme ;
+                                                           owl:hasValue :mystere
+                                                         ]
+                                                       ) ;
+                                    rdf:type owl:Class
+                                  ] ;
+              rdfs:subClassOf :film ;
+              rdfs:label "film de mystère"@fr .
+
+
+###  http://www.semanticweb.org/colettedupuy/ontologies/2021/film_paris#film_noir
+:film_noir rdf:type owl:Class ;
+           owl:equivalentClass [ owl:intersectionOf ( :film
+                                                      [ rdf:type owl:Restriction ;
+                                                        owl:onProperty :est_classe_comme ;
+                                                        owl:hasValue :noir
+                                                      ]
+                                                    ) ;
+                                 rdf:type owl:Class
+                               ] ;
+           rdfs:subClassOf :film ;
+           rdfs:label "film noir"@fr .
+
+
+###  http://www.semanticweb.org/colettedupuy/ontologies/2021/film_paris#film_romantique
+:film_romantique rdf:type owl:Class ;
+                 owl:equivalentClass [ owl:intersectionOf ( :film
+                                                            [ rdf:type owl:Restriction ;
+                                                              owl:onProperty :est_classe_comme ;
+                                                              owl:hasValue :romance
+                                                            ]
+                                                          ) ;
+                                       rdf:type owl:Class
+                                     ] ;
+                 rdfs:subClassOf :film ;
+                 rdfs:label "film romantique"@fr .
+
+
+###  http://www.semanticweb.org/colettedupuy/ontologies/2021/film_paris#film_science_fiction
+:film_science_fiction rdf:type owl:Class ;
+                      owl:equivalentClass [ owl:intersectionOf ( :film
+                                                                 [ rdf:type owl:Restriction ;
+                                                                   owl:onProperty :est_classe_comme ;
+                                                                   owl:hasValue :science_fiction
+                                                                 ]
+                                                               ) ;
+                                            rdf:type owl:Class
+                                          ] ;
+                      rdfs:subClassOf :film ;
+                      rdfs:label "film de science fiction"@fr .
+
+
+###  http://www.semanticweb.org/colettedupuy/ontologies/2021/film_paris#film_sport
+:film_sport rdf:type owl:Class ;
+            owl:equivalentClass [ owl:intersectionOf ( :film
+                                                       [ rdf:type owl:Restriction ;
+                                                         owl:onProperty :est_classe_comme ;
+                                                         owl:hasValue :sport
+                                                       ]
+                                                     ) ;
+                                  rdf:type owl:Class
+                                ] ;
+            rdfs:subClassOf :film ;
+            rdfs:label "film de sport"@fr .
+
+
+###  http://www.semanticweb.org/colettedupuy/ontologies/2021/film_paris#film_talk_show
+:film_talk_show rdf:type owl:Class ;
+                owl:equivalentClass [ owl:intersectionOf ( :film
+                                                           [ rdf:type owl:Restriction ;
+                                                             owl:onProperty :est_classe_comme ;
+                                                             owl:hasValue :talk_show
+                                                           ]
+                                                         ) ;
+                                      rdf:type owl:Class
+                                    ] ;
+                rdfs:subClassOf :film ;
+                rdfs:label "film talk show"@fr .
+
+
+###  http://www.semanticweb.org/colettedupuy/ontologies/2021/film_paris#film_tele_realite
+:film_tele_realite rdf:type owl:Class ;
+                   owl:equivalentClass [ owl:intersectionOf ( :film
+                                                              [ rdf:type owl:Restriction ;
+                                                                owl:onProperty :est_classe_comme ;
+                                                                owl:hasValue :tele_realite
+                                                              ]
+                                                            ) ;
+                                         rdf:type owl:Class
+                                       ] ;
+                   rdfs:subClassOf :film ;
+                   rdfs:label "film de télé réalité"@fr .
+
+
+###  http://www.semanticweb.org/colettedupuy/ontologies/2021/film_paris#film_thriller
+:film_thriller rdf:type owl:Class ;
+               owl:equivalentClass [ owl:intersectionOf ( :film
+                                                          [ rdf:type owl:Restriction ;
+                                                            owl:onProperty :est_classe_comme ;
+                                                            owl:hasValue :thriller
+                                                          ]
+                                                        ) ;
+                                     rdf:type owl:Class
+                                   ] ;
+               rdfs:subClassOf :film ;
+               rdfs:label "film thriller"@fr .
+
+
+###  http://www.semanticweb.org/colettedupuy/ontologies/2021/film_paris#film_western
+:film_western rdf:type owl:Class ;
+              owl:equivalentClass [ owl:intersectionOf ( :film
+                                                         [ rdf:type owl:Restriction ;
+                                                           owl:onProperty :est_classe_comme ;
+                                                           owl:hasValue :western
+                                                         ]
+                                                       ) ;
+                                    rdf:type owl:Class
+                                  ] ;
+              rdfs:subClassOf :film ;
+              rdfs:label "film western"@fr .
+
+
+###  http://www.semanticweb.org/colettedupuy/ontologies/2021/film_paris#genre
+:genre rdf:type owl:Class ;
+       rdfs:label "genre"@fr .
+
+
+###  http://www.semanticweb.org/colettedupuy/ontologies/2021/film_paris#lieu
+:lieu rdf:type owl:Class ;
+      rdfs:label "lieu"@fr .
+
+
+###  http://www.semanticweb.org/colettedupuy/ontologies/2021/film_paris#spectacle
+:spectacle rdf:type owl:Class ;
+           owl:equivalentClass [ owl:intersectionOf ( :activite
+                                                      [ rdf:type owl:Restriction ;
+                                                        owl:onProperty :est_de_type ;
+                                                        owl:hasValue :spectacle
+                                                      ]
+                                                    ) ;
+                                 rdf:type owl:Class
+                               ] ;
+           rdfs:subClassOf :activite .
+
+
+###  http://www.semanticweb.org/colettedupuy/ontologies/2021/film_paris#type
+:type rdf:type owl:Class .
+
+
+###  http://www.semanticweb.org/colettedupuy/ontologies/2021/film_paris#ville
+:ville rdf:type owl:Class ;
+       rdfs:subClassOf :lieu ;
+       rdfs:label "ville"@fr .
+
+
+#################################################################
+#    Individuals
+#################################################################
+
+###  http://www.semanticweb.org/colettedupuy/ontologies/2021/film_paris#action
+:action rdf:type owl:NamedIndividual ,
+                 :genre ;
+        rdfs:label "action"@fr .
+
+
+###  http://www.semanticweb.org/colettedupuy/ontologies/2021/film_paris#actualite
+:actualite rdf:type owl:NamedIndividual ,
+                    :genre ;
+           rdfs:label "actualité"@fr .
+
+
+###  http://www.semanticweb.org/colettedupuy/ontologies/2021/film_paris#animation
+:animation rdf:type owl:NamedIndividual ,
+                    :type .
+
+
+###  http://www.semanticweb.org/colettedupuy/ontologies/2021/film_paris#aventure
+:aventure rdf:type owl:NamedIndividual ,
+                   :genre ;
+          rdfs:label "aventure"@fr .
+
+
+###  http://www.semanticweb.org/colettedupuy/ontologies/2021/film_paris#biographie
+:biographie rdf:type owl:NamedIndividual ,
+                     :genre ;
+            rdfs:label "biographie"@fr .
+
+
+###  http://www.semanticweb.org/colettedupuy/ontologies/2021/film_paris#catastrophe
+:catastrophe rdf:type owl:NamedIndividual ,
+                      :genre ;
+             rdfs:label "catastrophe"@fr .
+
+
+###  http://www.semanticweb.org/colettedupuy/ontologies/2021/film_paris#comedie
+:comedie rdf:type owl:NamedIndividual ,
+                  :genre ;
+         rdfs:label "comédie"@fr .
+
+
+###  http://www.semanticweb.org/colettedupuy/ontologies/2021/film_paris#concert
+:concert rdf:type owl:NamedIndividual ,
+                  :type .
+
+
+###  http://www.semanticweb.org/colettedupuy/ontologies/2021/film_paris#criminel
+:criminel rdf:type owl:NamedIndividual ,
+                   :genre ;
+          rdfs:label "criminel"@fr .
+
+
+###  http://www.semanticweb.org/colettedupuy/ontologies/2021/film_paris#documentaire
+:documentaire rdf:type owl:NamedIndividual ,
+                       :genre ;
+              rdfs:label "documentaire"@fr .
+
+
+###  http://www.semanticweb.org/colettedupuy/ontologies/2021/film_paris#drame
+:drame rdf:type owl:NamedIndividual ,
+                :genre ;
+       rdfs:label "drame"@fr .
+
+
+###  http://www.semanticweb.org/colettedupuy/ontologies/2021/film_paris#exposition
+:exposition rdf:type owl:NamedIndividual ,
+                     :type .
+
+
+###  http://www.semanticweb.org/colettedupuy/ontologies/2021/film_paris#famille
+:famille rdf:type owl:NamedIndividual ,
+                  :genre ;
+         rdfs:label "famille"@fr .
+
+
+###  http://www.semanticweb.org/colettedupuy/ontologies/2021/film_paris#fantastique
+:fantastique rdf:type owl:NamedIndividual ,
+                      :genre ;
+             rdfs:label "fantastique"@fr .
+
+
+###  http://www.semanticweb.org/colettedupuy/ontologies/2021/film_paris#game_show
+:game_show rdf:type owl:NamedIndividual ,
+                    :genre ;
+           rdfs:label "game-show"@fr .
+
+
+###  http://www.semanticweb.org/colettedupuy/ontologies/2021/film_paris#guerre
+:guerre rdf:type owl:NamedIndividual ,
+                 :genre ;
+        rdfs:label "guerre"@fr .
+
+
+###  http://www.semanticweb.org/colettedupuy/ontologies/2021/film_paris#heroic_fantasy
+:heroic_fantasy rdf:type owl:NamedIndividual ,
+                         :genre ;
+                rdfs:label "héroïc-fantasy"@fr .
+
+
+###  http://www.semanticweb.org/colettedupuy/ontologies/2021/film_paris#historique
+:historique rdf:type owl:NamedIndividual ,
+                     :genre ;
+            rdfs:label "historique"@fr .
+
+
+###  http://www.semanticweb.org/colettedupuy/ontologies/2021/film_paris#horreur
+:horreur rdf:type owl:NamedIndividual ,
+                  :genre ;
+         rdfs:label "horreur"@fr .
+
+
+###  http://www.semanticweb.org/colettedupuy/ontologies/2021/film_paris#musique
+:musique rdf:type owl:NamedIndividual ,
+                  :genre ;
+         rdfs:label "musique"@fr .
+
+
+###  http://www.semanticweb.org/colettedupuy/ontologies/2021/film_paris#mystere
+:mystere rdf:type owl:NamedIndividual ,
+                  :genre ;
+         rdfs:label "mystère"@fr .
+
+
+###  http://www.semanticweb.org/colettedupuy/ontologies/2021/film_paris#noir
+:noir rdf:type owl:NamedIndividual ,
+               :genre ;
+      rdfs:label "noir"@fr .
+
+
+###  http://www.semanticweb.org/colettedupuy/ontologies/2021/film_paris#paris
+:paris rdf:type owl:NamedIndividual ,
+                :ville .
+
+
+###  http://www.semanticweb.org/colettedupuy/ontologies/2021/film_paris#romance
+:romance rdf:type owl:NamedIndividual ,
+                  :genre ;
+         rdfs:label "romance"@fr .
+
+
+###  http://www.semanticweb.org/colettedupuy/ontologies/2021/film_paris#science_fiction
+:science_fiction rdf:type owl:NamedIndividual ,
+                          :genre ;
+                 rdfs:label "science-fiction"@fr .
+
+
+###  http://www.semanticweb.org/colettedupuy/ontologies/2021/film_paris#spectacle
+:spectacle rdf:type owl:NamedIndividual ,
+                    :type .
+
+
+###  http://www.semanticweb.org/colettedupuy/ontologies/2021/film_paris#sport
+:sport rdf:type owl:NamedIndividual ,
+                :genre ;
+       rdfs:label "sport"@fr .
+
+
+###  http://www.semanticweb.org/colettedupuy/ontologies/2021/film_paris#talk_show
+:talk_show rdf:type owl:NamedIndividual ,
+                    :genre ;
+           rdfs:label "talk-show"@fr .
+
+
+###  http://www.semanticweb.org/colettedupuy/ontologies/2021/film_paris#tele_realite
+:tele_realite rdf:type owl:NamedIndividual ,
+                       :genre ;
+              rdfs:label "télé-réalité"@fr .
+
+
+###  http://www.semanticweb.org/colettedupuy/ontologies/2021/film_paris#thriller
+:thriller rdf:type owl:NamedIndividual ,
+                   :genre ;
+          rdfs:label "thriller"@fr .
+
+
+###  http://www.semanticweb.org/colettedupuy/ontologies/2021/film_paris#western
+:western rdf:type owl:NamedIndividual ,
+                  :genre ;
+         rdfs:label "western"@fr .
+
+
+###  http://www.semanticweb.org/colettedupuy/ontologies/2021/film_paris#événement
+:événement rdf:type owl:NamedIndividual ,
+                    :type .
+
+
+#################################################################
+#    Annotations
+#################################################################
+
+:animation rdfs:label "animation"@fr .
+
+
+:concert rdfs:label "concert"@fr .
+
+
+:exposition rdfs:label "exposition"@fr .
+
+
+:spectacle rdfs:label "spectacle"@fr .
+
+
+###  Generated by the OWL API (version 4.5.9.2019-02-01T07:24:44Z) https://github.com/owlcs/owlapi

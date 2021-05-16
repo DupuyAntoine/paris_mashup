@@ -10,6 +10,9 @@ public class Activity extends Model {
     @CsvBindByName(column = "Code postal")
 	private String postalCode;
 
+    @CsvBindByName(column = "Date de début")
+	private String startDate;
+
     @CsvBindByName(column = "Accès PMR")
 	private String accessSrm;
     
@@ -92,6 +95,14 @@ public class Activity extends Model {
 		this.imageUrl = imageUrl;
 	}
 
+	public String getStartDate() {
+		return startDate;
+	}
+
+	public void setStartDate(String startDate) {
+		this.startDate = startDate;
+	}
+	
 	public String toString() {
 		return label + " " + url + " --- " + priceType;
 	}
