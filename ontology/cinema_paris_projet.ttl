@@ -75,10 +75,7 @@
 
 ###  http://www.semanticweb.org/colettedupuy/ontologies/2021/film_paris#a_pour_code_postal
 :a_pour_code_postal rdf:type owl:DatatypeProperty ;
-                    rdfs:domain :activite ,
-                                :arrondissement ,
-                                :film ,
-                                :ville ;
+                    rdfs:domain :lieu ;
                     rdfs:range xsd:string ;
                     rdfs:label "a pour code postal"@fr .
 

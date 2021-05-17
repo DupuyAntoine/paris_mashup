@@ -60,7 +60,6 @@ public class SparqlInsertion {
 		for (Film film : films) {
 			triplets.add(new Triplet(" :" + film.format(film.getLabel()), " a", ":film."));
 			triplets.add(new Triplet(" :" + film.format(film.getLabel()), " rdfs:label", "\"" + film.getLabel() + "\"."));
-			triplets.add(new Triplet(" :" + film.format(film.getLabel()), " :a_pour_code_postal", "\"" + film.getPostalCode() + "\"^^xsd:string."));
 			for (Genre genre : film.getGenres()) {
 				triplets.add(new Triplet(" :" + film.format(film.getLabel()), " :est_classe_comme", ":" + genre.format(genre.getLabel()) + "."));
 			}
@@ -83,7 +82,6 @@ public class SparqlInsertion {
 				if (activity.getPostalCode().equals(arrondissement.getPostalCode())) {
 					triplets.add(new Triplet(":activite" + i + j, " a", ":activite."));
 					triplets.add(new Triplet(":activite" + i + j, " rdfs:label", "\"" + activity.getLabel().replace("\"", "") + "\"."));
-					triplets.add(new Triplet(":activite" + i + j, " :a_pour_code_postal", "\"" + activity.getPostalCode() + "\"^^xsd:string."));
 					triplets.add(new Triplet(":activite" + i + j, " :a_lieu_a_partir_du", "\"" + activity.getStartDate() + "\"^^xsd:string."));
 					triplets.add(new Triplet(":activite" + i + j, " :a_un_accès_PMR", "\"" + activity.getAccessSrm() + "\"^^xsd:string."));
 					triplets.add(new Triplet(":activite" + i + j, " :a_pour_catégorie", "\"" + activity.getCategory() + "\"^^xsd:string."));
