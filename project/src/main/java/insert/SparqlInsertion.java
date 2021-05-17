@@ -28,7 +28,7 @@ public class SparqlInsertion {
 		this.arrondissements = new OpenArrondissementCsv(
 				".\\src\\main\\resources\\csv\\arrondissements.csv").readCsvArrondissement();
 		this.activities = new OpenActivityCsv(
-				".\\src\\main\\resources\\csv\\que-faire-a-paris-.csv").readCsvActivity();
+				".\\src\\main\\resources\\csv\\que-faire-a-paris-1.csv").readCsvActivity();
 	}
 
 	public List<Film> getFilms() {
@@ -77,6 +77,7 @@ public class SparqlInsertion {
 			triplets.add(new Triplet(" :" + arrondissement.format(arrondissement.getLabel()), " rdfs:label", "\"" + arrondissement.getLabel() + "\"."));
 			triplets.add(new Triplet(" :" + arrondissement.format(arrondissement.getLabel()), " :a_pour_nom", "\"" + arrondissement.getName() + "\"^^xsd:string."));
 			triplets.add(new Triplet(" :" + arrondissement.format(arrondissement.getLabel()), " :a_pour_code_postal", "\"" + arrondissement.getPostalCode() + "\"^^xsd:string."));
+			triplets.add(new Triplet(" :" + arrondissement.format(arrondissement.getLabel()), " :se_situe_a", ":paris."));
 			int j = 0;
 			for (Activity activity : activities) {
 				if (activity.getPostalCode().equals(arrondissement.getPostalCode())) {
@@ -105,7 +106,7 @@ public class SparqlInsertion {
 		
 		SparqlInsertion insert = new SparqlInsertion();
 		List<Triplet> triplets = insert.buildTriplets();
-		String query = "PREFIX xsd: <http://www.w3.org/2001/XMLSchema#> PREFIX : <http://www.semanticweb.org/colettedupuy/ontologies/2021/film_paris> PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>  INSERT DATA { ";
+		String query = "PREFIX xsd: <http://www.w3.org/2001/XMLSchema#> PREFIX : <http://www.semanticweb.org/colettedupuy/ontologies/2021/film_paris#> PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>  INSERT DATA { ";
 		for (Triplet t : triplets) {
 			query += t.getSujet() + " " + t.getPredicat() + " " + t.getObjet() + " " ;
 
