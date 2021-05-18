@@ -13,6 +13,7 @@ WHERE {
     ) AS ?fDBpedia
   )
   SERVICE <http://dbpedia.org/sparql> {
-    ?fDBpedia rdfs:comment ?c
+    ?fDBpedia a <http://dbpedia.org/resource/Film> .
+    ?fDBpedia rdfs:comment ?c .
   }
 }
