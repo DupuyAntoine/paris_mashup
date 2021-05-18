@@ -242,7 +242,7 @@
                 owl:equivalentClass [ owl:intersectionOf ( :film
                                                            [ rdf:type owl:Restriction ;
                                                              owl:onProperty :est_classe_comme ;
-                                                             owl:hasValue :actualite
+                                                             owl:hasValue :news
                                                            ]
                                                          ) ;
                                       rdf:type owl:Class
@@ -256,7 +256,7 @@
                owl:equivalentClass [ owl:intersectionOf ( :film
                                                           [ rdf:type owl:Restriction ;
                                                             owl:onProperty :est_classe_comme ;
-                                                            owl:hasValue :aventure
+                                                            owl:hasValue :adventure
                                                           ]
                                                         ) ;
                                      rdf:type owl:Class
@@ -312,7 +312,7 @@
                owl:equivalentClass [ owl:intersectionOf ( :film
                                                           [ rdf:type owl:Restriction ;
                                                             owl:onProperty :est_classe_comme ;
-                                                            owl:hasValue :criminel
+                                                            owl:hasValue :crime
                                                           ]
                                                         ) ;
                                      rdf:type owl:Class
@@ -354,7 +354,7 @@
                owl:equivalentClass [ owl:intersectionOf ( :film
                                                           [ rdf:type owl:Restriction ;
                                                             owl:onProperty :est_classe_comme ;
-                                                            owl:hasValue :famille
+                                                            owl:hasValue :family
                                                           ]
                                                         ) ;
                                      rdf:type owl:Class
@@ -368,7 +368,7 @@
                   owl:equivalentClass [ owl:intersectionOf ( :film
                                                              [ rdf:type owl:Restriction ;
                                                                owl:onProperty :est_classe_comme ;
-                                                               owl:hasValue :fantastique
+                                                               owl:hasValue :fantasy
                                                              ]
                                                            ) ;
                                         rdf:type owl:Class
@@ -382,7 +382,7 @@
                 owl:equivalentClass [ owl:intersectionOf ( :film
                                                            [ rdf:type owl:Restriction ;
                                                              owl:onProperty :est_classe_comme ;
-                                                             owl:hasValue :game_show
+                                                             owl:hasValue :gameshow
                                                            ]
                                                          ) ;
                                       rdf:type owl:Class
@@ -438,7 +438,7 @@
               owl:equivalentClass [ owl:intersectionOf ( :film
                                                          [ rdf:type owl:Restriction ;
                                                            owl:onProperty :est_classe_comme ;
-                                                           owl:hasValue :horreur
+                                                           owl:hasValue :horror
                                                          ]
                                                        ) ;
                                     rdf:type owl:Class
@@ -450,9 +450,16 @@
 ###  http://www.semanticweb.org/colettedupuy/ontologies/2021/film_paris#film_musical
 :film_musical rdf:type owl:Class ;
               owl:equivalentClass [ owl:intersectionOf ( :film
-                                                         [ rdf:type owl:Restriction ;
-                                                           owl:onProperty :est_classe_comme ;
-                                                           owl:hasValue :musique
+                                                         [ rdf:type owl:Class ;
+                                                           owl:unionOf ( [ rdf:type owl:Restriction ;
+                                                                           owl:onProperty :est_classe_comme ;
+                                                                           owl:hasValue :music
+                                                                         ]
+                                                                         [ rdf:type owl:Restriction ;
+                                                                           owl:onProperty :est_classe_comme ;
+                                                                           owl:hasValue :musical
+                                                                         ]
+                                                                       )
                                                          ]
                                                        ) ;
                                     rdf:type owl:Class
@@ -466,7 +473,7 @@
               owl:equivalentClass [ owl:intersectionOf ( :film
                                                          [ rdf:type owl:Restriction ;
                                                            owl:onProperty :est_classe_comme ;
-                                                           owl:hasValue :mystere
+                                                           owl:hasValue :mystery
                                                          ]
                                                        ) ;
                                     rdf:type owl:Class
@@ -480,7 +487,7 @@
            owl:equivalentClass [ owl:intersectionOf ( :film
                                                       [ rdf:type owl:Restriction ;
                                                         owl:onProperty :est_classe_comme ;
-                                                        owl:hasValue :noir
+                                                        owl:hasValue :film-noir
                                                       ]
                                                     ) ;
                                  rdf:type owl:Class
@@ -508,7 +515,7 @@
                       owl:equivalentClass [ owl:intersectionOf ( :film
                                                                  [ rdf:type owl:Restriction ;
                                                                    owl:onProperty :est_classe_comme ;
-                                                                   owl:hasValue :science_fiction
+                                                                   owl:hasValue :scifi
                                                                  ]
                                                                ) ;
                                             rdf:type owl:Class
@@ -550,7 +557,7 @@
                    owl:equivalentClass [ owl:intersectionOf ( :film
                                                               [ rdf:type owl:Restriction ;
                                                                 owl:onProperty :est_classe_comme ;
-                                                                owl:hasValue :tele_realite
+                                                                owl:hasValue :reality_tv
                                                               ]
                                                             ) ;
                                          rdf:type owl:Class
@@ -10184,12 +10191,6 @@
             rdfs:label "Le  cimetière de Montmartre" .
 
 
-###  http://www.semanticweb.org/colettedupuy/ontologies/2021/film_paris#actualite
-:actualite rdf:type owl:NamedIndividual ,
-                    :genre ;
-           rdfs:label "actualité"@fr .
-
-
 ###  http://www.semanticweb.org/colettedupuy/ontologies/2021/film_paris#adieu_monsieur_haffmann
 :adieu_monsieur_haffmann rdf:type owl:NamedIndividual ,
                                   :film ;
@@ -10587,12 +10588,6 @@
                      "Big Bang" .
 
 
-###  http://www.semanticweb.org/colettedupuy/ontologies/2021/film_paris#biographie
-:biographie rdf:type owl:NamedIndividual ,
-                     :genre ;
-            rdfs:label "biographie"@fr .
-
-
 ###  http://www.semanticweb.org/colettedupuy/ontologies/2021/film_paris#biography
 :biography rdf:type owl:NamedIndividual .
 
@@ -10946,12 +10941,6 @@
          rdfs:label "COLETTE" .
 
 
-###  http://www.semanticweb.org/colettedupuy/ontologies/2021/film_paris#comedie
-:comedie rdf:type owl:NamedIndividual ,
-                  :genre ;
-         rdfs:label "comédie"@fr .
-
-
 ###  http://www.semanticweb.org/colettedupuy/ontologies/2021/film_paris#comedie_humaine
 :comedie_humaine rdf:type owl:NamedIndividual ,
                           :film ;
@@ -11018,12 +11007,6 @@
 
 ###  http://www.semanticweb.org/colettedupuy/ontologies/2021/film_paris#crime
 :crime rdf:type owl:NamedIndividual .
-
-
-###  http://www.semanticweb.org/colettedupuy/ontologies/2021/film_paris#criminel
-:criminel rdf:type owl:NamedIndividual ,
-                   :genre ;
-          rdfs:label "criminel"@fr .
 
 
 ###  http://www.semanticweb.org/colettedupuy/ontologies/2021/film_paris#curiosa
@@ -11303,13 +11286,6 @@
 :drama rdf:type owl:NamedIndividual .
 
 
-###  http://www.semanticweb.org/colettedupuy/ontologies/2021/film_paris#drame
-:drame rdf:type owl:NamedIndividual ,
-                :genre ;
-       rdfs:comment "drama" ;
-       rdfs:label "drame"@fr .
-
-
 ###  http://www.semanticweb.org/colettedupuy/ontologies/2021/film_paris#ebook
 :ebook rdf:type owl:NamedIndividual ,
                 :film ;
@@ -11526,12 +11502,6 @@
                   "Fahim" .
 
 
-###  http://www.semanticweb.org/colettedupuy/ontologies/2021/film_paris#famille
-:famille rdf:type owl:NamedIndividual ,
-                  :genre ;
-         rdfs:label "famille"@fr .
-
-
 ###  http://www.semanticweb.org/colettedupuy/ontologies/2021/film_paris#family
 :family rdf:type owl:NamedIndividual .
 
@@ -11586,6 +11556,10 @@
         :a_ete_tourne_a :entrepot ;
         :est_classe_comme :drama ;
         rdfs:label "FEU !!" .
+
+
+###  http://www.semanticweb.org/colettedupuy/ontologies/2021/film_paris#film-noir
+:film-noir rdf:type owl:NamedIndividual .
 
 
 ###  http://www.semanticweb.org/colettedupuy/ontologies/2021/film_paris#fin_de_matinee
@@ -11662,12 +11636,6 @@
                                           :passy ,
                                           :temple ;
                           rdfs:label "From Moscow to Royan 3.0" .
-
-
-###  http://www.semanticweb.org/colettedupuy/ontologies/2021/film_paris#game_show
-:game_show rdf:type owl:NamedIndividual ,
-                    :genre ;
-           rdfs:label "game-show"@fr .
 
 
 ###  http://www.semanticweb.org/colettedupuy/ontologies/2021/film_paris#gameshow
@@ -11853,12 +11821,6 @@
                 rdfs:label "héroïc-fantasy"@fr .
 
 
-###  http://www.semanticweb.org/colettedupuy/ontologies/2021/film_paris#historique
-:historique rdf:type owl:NamedIndividual ,
-                     :genre ;
-            rdfs:label "historique"@fr .
-
-
 ###  http://www.semanticweb.org/colettedupuy/ontologies/2021/film_paris#history
 :history rdf:type owl:NamedIndividual .
 
@@ -11868,12 +11830,6 @@
                                               :film ;
                                      :a_ete_tourne_a :palaisbourbon ;
                                      rdfs:label "HOMMES AU BORD DE LA CRISE DE NERFS" .
-
-
-###  http://www.semanticweb.org/colettedupuy/ontologies/2021/film_paris#horreur
-:horreur rdf:type owl:NamedIndividual ,
-                  :genre ;
-         rdfs:label "horreur"@fr .
 
 
 ###  http://www.semanticweb.org/colettedupuy/ontologies/2021/film_paris#horror
@@ -14074,12 +14030,6 @@
 :musical rdf:type owl:NamedIndividual .
 
 
-###  http://www.semanticweb.org/colettedupuy/ontologies/2021/film_paris#musique
-:musique rdf:type owl:NamedIndividual ,
-                  :genre ;
-         rdfs:label "musique"@fr .
-
-
 ###  http://www.semanticweb.org/colettedupuy/ontologies/2021/film_paris#musique_de_chambre
 :musique_de_chambre rdf:type owl:NamedIndividual ,
                              :film ;
@@ -14140,12 +14090,6 @@
                        :film ;
               :a_ete_tourne_a :vaugirard ;
               rdfs:label "NICKY LARSON" .
-
-
-###  http://www.semanticweb.org/colettedupuy/ontologies/2021/film_paris#noir
-:noir rdf:type owl:NamedIndividual ,
-               :genre ;
-      rdfs:label "noir"@fr .
 
 
 ###  http://www.semanticweb.org/colettedupuy/ontologies/2021/film_paris#nos_annees_folles
@@ -14639,6 +14583,12 @@
              rdfs:label "RAID DINGUE" .
 
 
+###  http://www.semanticweb.org/colettedupuy/ontologies/2021/film_paris#reality_tv
+:reality_tv rdf:type owl:NamedIndividual ,
+                     :genre ;
+            rdfs:label "reality-tv"@fr .
+
+
 ###  http://www.semanticweb.org/colettedupuy/ontologies/2021/film_paris#remember_me
 :remember_me rdf:type owl:NamedIndividual ,
                       :film ;
@@ -14769,12 +14719,6 @@
                                  :temple ,
                                  :vaugirard ;
                  rdfs:label "SAUVER OU PERIR" .
-
-
-###  http://www.semanticweb.org/colettedupuy/ontologies/2021/film_paris#science_fiction
-:science_fiction rdf:type owl:NamedIndividual ,
-                          :genre ;
-                 rdfs:label "science-fiction"@fr .
 
 
 ###  http://www.semanticweb.org/colettedupuy/ontologies/2021/film_paris#scifi
@@ -15111,12 +15055,6 @@
                          :buttesmontmartre ;
          :est_classe_comme :comedy ;
          rdfs:label "Tazzeka" .
-
-
-###  http://www.semanticweb.org/colettedupuy/ontologies/2021/film_paris#tele_realite
-:tele_realite rdf:type owl:NamedIndividual ,
-                       :genre ;
-              rdfs:label "télé-réalité"@fr .
 
 
 ###  http://www.semanticweb.org/colettedupuy/ontologies/2021/film_paris#telle_mere_telle_fille

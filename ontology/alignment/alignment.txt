@@ -1,0 +1,18 @@
+PREFIX : <http://www.semanticweb.org/colettedupuy/ontologies/2021/film_paris#>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+
+INSERT { ?f rdfs:comment ?c }
+WHERE {
+  ?f a :film .
+  ?f rdfs:label ?label .
+  BIND(
+    uri(
+      concat("http://dbpedia.org/resource/", encode_for_uri(
+          concat(ucase(substr(?label, 1, 1)), lcase(substr(?label, 2, strlen(?label) - 1)))
+      ))
+    ) AS ?fDBpedia
+  )
+  SERVICE <http://dbpedia.org/sparql> {
+    ?fDBpedia rdfs:comment ?c
+  }
+}
