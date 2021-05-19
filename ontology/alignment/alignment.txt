@@ -17,3 +17,26 @@ WHERE {
     ?fDBpedia rdfs:comment ?c .
   }
 }
+
+
+----------------------------------------------------
+
+
+PREFIX : <http://www.semanticweb.org/colettedupuy/ontologies/2021/film_paris#>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+PREFIX dbo: <http://dbpedia.org/ontology/>
+PREFIX db: <http://dbpedia.org/>
+
+INSERT {
+  :paris dbo:abstract ?a
+} WHERE {
+  :paris rdfs:label "Paris" .
+  BIND(
+    uri(
+      "http://dbpedia.org/resource/Paris"
+    ) AS ?fDBpedia
+  )
+  SERVICE <http://dbpedia.org/sparql> {
+    ?fDBpedia dbo:abstract ?a
+  }
+}
