@@ -8,6 +8,7 @@ class Arrondissement extends Component {
     super(props);
     this.state = {
       uri : "",
+      label : "",
       activities : [],
       films : []
     }  
@@ -42,6 +43,8 @@ class Arrondissement extends Component {
     SELECT * WHERE {
       ?uri a :activite .
       ?uri rdfs:label ?label .
+      OPTIONAL { ?uri :a_lieu_a_partir_du ?date . }
+      OPTIONAL { ?uri :a_pour_url_image ?url_image .}
       ?uri :a_lieu_a <${uri}>
       BIND(RAND() AS ?random)
     }
@@ -58,15 +61,19 @@ class Arrondissement extends Component {
   }
 
   componentDidMount() {
-    const { uri } = this.props.location.state
+    const { uri, label } = this.props.location.state
     this.searchActivities(uri)
     this.searchFilms(uri)
+    this.setState({label})
   }
 
   render() {
     return (
         <div>
+          <h2>Activités à faire dans l'arrondissement {this.state.label}</h2>
           <ActivityList activities={this.state.activities} arrondissement={this.state.uri} />
+          <hr />
+          <h2>Tournés dans l'arrondissement {this.state.label}</h2>
           <FilmList films={this.state.films} arrondissement={this.state.uri} />
         </div>
     );

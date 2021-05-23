@@ -15,13 +15,14 @@ class Home extends Component {
     const encodedQuery = encodeURIComponent(`PREFIX : <http://www.semanticweb.org/colettedupuy/ontologies/2021/film_paris#>
     PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
     
-    SELECT ?uri ?label (COUNT(?film) AS ?nbFilm) WHERE {
+    SELECT ?uri ?label ?name (COUNT(?film) AS ?nbFilm) WHERE {
       ?uri a :arrondissement .
       ?uri rdfs:label ?label .
+      ?uri :a_pour_nom ?name .
       ?film :a_ete_tourne_a ?uri .
       ?film :est_classe_comme :${genre.toLowerCase()}
     }
-    GROUP BY ?uri ?label
+    GROUP BY ?uri ?label ?name
     ORDER BY DESC(?nbFilm)
     LIMIT 3
     `);
@@ -36,10 +37,12 @@ class Home extends Component {
 
   render() {
     return (
-        <div>
-          <h2>Découvrons ensemble par où vous commencerez votre visite !</h2>
-          <GenreInput onSubmit={this.searchArrondissements} />
-          <ArrondissementList arrondissements={this.state.arrondissements} />
+        <div className="container">
+          <div className="row">
+            <h2>Découvrons ensemble par où vous commencerez votre visite !</h2>
+            <GenreInput onSubmit={this.searchArrondissements} />
+            <ArrondissementList arrondissements={this.state.arrondissements} />
+          </div>
         </div>
     );
   }
