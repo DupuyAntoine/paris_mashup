@@ -12,10 +12,12 @@ import 'bootstrap/dist/css/bootstrap.css';
 class App extends Component {
   render() {
     return(
-      <div>
+      <div style={{
+        background: 'linear-gradient(180deg, rgba(0,177,255,0.5) 0%, rgba(0,117,255,0.5) 50%, rgba(0,23,255,0.5) 100%)'
+      }}>
         <div className="col-md-12">
           <Router>
-            <Navbar bg="dark" variant="dark" expand="lg" sticky="top">
+            <Navbar variant="dark" style={{background: '#CE2B08'}} expand="lg" sticky="top">
               <Navbar.Brand href="/" style={{marginLeft: '20px'}}>Découvrez Paris !</Navbar.Brand>
               <Navbar.Toggle aria-controls="basic-navbar-nav" />
               <Navbar.Collapse id="basic-navbar-nav">

@@ -5,9 +5,9 @@ import { Button, Card, CardDeck } from 'react-bootstrap'
 class ArrondissementList extends Component {
   render() {
     return (
-      <CardDeck style={{display: 'flex', flexDirection: 'row'}}>
+      <CardDeck style={{display: 'flex', flexDirection: 'row', color: 'black'}}>
         {this.props.arrondissements.map(arr => {
-          return <Card style={{ width: '18rem', marginRight: '20px', flex: 1, marginTop: '50px' }} key={arr.label.value}>
+          return <Card style={{ width: '18rem', marginRight: '20px', flex: 1, marginTop: '50px', height: 'max-content' }} key={arr.label.value}>
             <Card.Body>
               <Card.Title>{arr.label.value}</Card.Title>
               <Card.Text>

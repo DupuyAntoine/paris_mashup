@@ -25,9 +25,12 @@ class About extends Component {
 
   render() {
     return (
-        <div>
-          <h2>A propos de Paris</h2>
-          <p>{this.state.about}</p>
+        <div className="container" style={{color: 'white'}}>
+          <div className="row">
+            <h2>A propos de Paris</h2>
+            <br />
+            <p>{this.state.about}</p>
+          </div>
         </div>
     );
   }

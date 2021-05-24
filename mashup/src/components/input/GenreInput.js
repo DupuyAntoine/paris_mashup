@@ -40,7 +40,7 @@ class GenreInput extends Component {
 
     render () {
       return (
-        <Form onSubmit={this.onSubmit} role="form">
+        <Form style={{marginTop: '10vh'}} onSubmit={this.onSubmit} role="form">
           <Form.Group>
             <Form.Label>Séléctionner votre genre favori :</Form.Label>
           </Form.Group>

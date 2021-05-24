@@ -69,8 +69,8 @@ class Arrondissement extends Component {
 
   render() {
     return (
-        <div>
-          <h2>Activités à faire dans l'arrondissement {this.state.label}</h2>
+        <div className="container" style={{color: 'white'}}>
+          <h2>Activités dans l'arrondissement {this.state.label}</h2>
           <ActivityList activities={this.state.activities} arrondissement={this.state.uri} />
           <hr />
           <h2>Tournés dans l'arrondissement {this.state.label}</h2>

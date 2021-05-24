@@ -24,7 +24,7 @@ class Home extends Component {
     }
     GROUP BY ?uri ?label ?name
     ORDER BY DESC(?nbFilm)
-    LIMIT 3
+    LIMIT 4
     `);
     const apiUrl = `http://localhost:3030/FilmParis/query?query=${encodedQuery}`;
     fetch(apiUrl)
@@ -37,9 +37,9 @@ class Home extends Component {
 
   render() {
     return (
-        <div className="container">
+        <div className="container" style={{height: '100vh', width: '100vw', textAlign: 'center', color: 'white'}}>
           <div className="row">
-            <h2>Découvrons ensemble par où vous commencerez votre visite !</h2>
+            <h2 style={{marginTop: '10vh'}}>Découvrons ensemble par où vous commencerez votre visite !</h2>
             <GenreInput onSubmit={this.searchArrondissements} />
             <ArrondissementList arrondissements={this.state.arrondissements} />
           </div>
