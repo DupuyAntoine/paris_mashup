@@ -27,9 +27,9 @@ class About extends Component {
     return (
         <div className="container" style={{color: 'white'}}>
           <div className="row">
-            <h2>A propos de Paris</h2>
+            <h2 style={{textAlign: 'center'}}>A propos de Paris</h2>
             <br />
-            <p>{this.state.about}</p>
+            <p style={{textAlign: 'justify'}}>{this.state.about}</p>
           </div>
         </div>
     );

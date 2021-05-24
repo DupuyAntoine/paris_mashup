@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { Table, Image } from 'react-bootstrap'
 
 class Activity extends Component {
 
@@ -21,8 +22,7 @@ class Activity extends Component {
       <${uri}> a :activite .
       <${uri}> rdfs:label ?label .
       OPTIONAL {<${uri}> :a_lieu_a_partir_du ?date}
-      OPTIONAL {<${uri}> :a_pour_adresse ?adr .}
-      OPTIONAL {<${uri}> :a_pour_categorie ?cat .}
+      OPTIONAL {<${uri}> :a_pour_catégorie ?cat .}
       OPTIONAL {<${uri}> :a_pour_type_accès ?acc .}
       OPTIONAL {<${uri}> :a_pour_type_de_prix ?prix .}
       OPTIONAL {<${uri}> :a_pour_url ?url .}
@@ -38,6 +38,7 @@ class Activity extends Component {
       .then((response) => response.json())
       .then((data) => { 
         data.results.bindings.map((elt) => {
+          console.log(elt)
           this.setState({
             informations: elt
           })
@@ -55,18 +56,37 @@ class Activity extends Component {
   render() {
     if (this.isReady()) {
       return (
-          <div className="container" style={{color: 'white'}}>
-              <h2>{this.state.informations.label.value}</h2>
-              <p>{this.state.informations.adr ? this.state.informations.adr.value : ""}</p>
-              <p>{this.state.informations.cat ? this.state.informations.cat.value : ""}</p>
-              <p>{this.state.informations.acc ? this.state.informations.acc.value : ""}</p>
-              <p>{this.state.informations.prix ? this.state.informations.prix.value : ""}</p>
-              <p>{this.state.informations.url ? this.state.informations.url.value : ""}</p>
-              <img src={this.state.informations.url_image ? this.state.informations.url_image.value : ""} alt="activite" />
-              <p>{this.state.informations.accesme ? (this.state.informations.accesme.value === "0" ? "Non" : "Oui") : ""}</p>
-              <p>{this.state.informations.accesmv ? (this.state.informations.accesmv.value === "0" ? "Non" : "Oui") : ""}</p>
-              <p>{this.state.informations.accespmr ? (this.state.informations.accespmr.value === "0" ? "Non" : "Oui") : ""}</p>
-          </div>
+        <div className="container" style={{height: '100vh', width: '100vw', color: 'white', textAlign: 'center'}}>
+            <Image style={{marginBottom: '50px'}} src={this.state.informations.url_image ? this.state.informations.url_image.value : "../téléchargement.svg"} height="50%" width="50%" rounded />
+            <Table striped hover variant="dark">
+              <thead>
+                <tr>
+                  <th>Titre</th>
+                  <th>Date de début</th>
+                  <th>Catégorie</th>
+                  <th>Accès</th>
+                  <th>Gratuit ou payant</th>
+                  <th>Site web</th>
+                  <th>Accès mal entendant</th>
+                  <th>Accès mal voyant</th>
+                  <th>Accès Personne à Mobilité réduite</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>{this.state.informations.label.value}</td>
+                  <td>{this.state.informations.date ? new Date(this.state.informations.date.value).toLocaleDateString('fr-FR') : "Non connue"}</td>
+                  <td>{this.state.informations.cat ? this.state.informations.cat.value : "Non connue"}</td>
+                  <td>{this.state.informations.acc ? this.state.informations.acc.value : "Non connu"}</td>
+                  <td>{this.state.informations.prix ? this.state.informations.prix.value : "Non connu"}</td>
+                  <td>{this.state.informations.url ? <a href={this.state.informations.url.value}>Lien</a> : "Non connu"}</td>
+                  <td>{this.state.informations.accesme ? (this.state.informations.accesme.value === "0" ? "Non" : "Oui") : "Non connu"}</td>
+                  <td>{this.state.informations.accesmv ? (this.state.informations.accesmv.value === "0" ? "Non" : "Oui") : "Non connu"}</td>
+                  <td>{this.state.informations.accespmr ? (this.state.informations.accespmr.value === "0" ? "Non" : "Oui") : "Non connu"}</td>
+                </tr>
+              </tbody>
+            </Table>         
+        </div>
       );  
     } else {
       return <div><p>Loading...</p></div>
