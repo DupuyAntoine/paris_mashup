@@ -37,7 +37,8 @@ class RandomFilms extends Component {
 
   render() {
     return (
-        <div>
+        <div className="container" style={{color: 'white'}}>
+          <h2 style={{textAlign: 'center'}}>Tournés à Paris</h2>
           <FilmList films={this.state.films} />
         </div>
     );

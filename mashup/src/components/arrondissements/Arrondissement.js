@@ -70,10 +70,9 @@ class Arrondissement extends Component {
   render() {
     return (
         <div className="container" style={{color: 'white'}}>
-          <h2>Activités dans l'arrondissement {this.state.label}</h2>
+          <h2 style={{textAlign: 'center'}}>Activités dans l'arrondissement {this.state.label}</h2>
           <ActivityList activities={this.state.activities} arrondissement={this.state.uri} />
-          <hr />
-          <h2>Tournés dans l'arrondissement {this.state.label}</h2>
+          <h2 style={{textAlign: 'center'}}>Tournés dans l'arrondissement {this.state.label}</h2>
           <FilmList films={this.state.films} arrondissement={this.state.uri} />
         </div>
     );

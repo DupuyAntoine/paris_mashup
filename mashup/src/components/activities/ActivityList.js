@@ -5,7 +5,7 @@ import { Button, Card, CardColumns } from 'react-bootstrap'
 class ActivityList extends Component {
   render() {
     return (
-      <CardColumns style={{display: 'flex', flexWrap: 'wrap'}}>
+      <CardColumns style={{display: 'flex', flexWrap: 'wrap', marginBottom: '50px', justifyContent: 'center', alignItems: 'center'}}>
         {this.props.activities.map(act => {
           return <Card className="text-center" style={{ width: '18rem', minWidth: '18rem', marginRight: '20px', flex: 0, marginTop: '50px', height: '100%', paddingBottom: '30px', color: 'black' }} key={act.label.value}>
             <Card.Img variant="top" src={act.url_image ? act.url_image.value : "../téléchargement.svg"} />

@@ -55,8 +55,17 @@ class Activity extends Component {
   render() {
     if (this.isReady()) {
       return (
-          <div>
+          <div className="container" style={{color: 'white'}}>
               <h2>{this.state.informations.label.value}</h2>
+              <p>{this.state.informations.adr ? this.state.informations.adr.value : ""}</p>
+              <p>{this.state.informations.cat ? this.state.informations.cat.value : ""}</p>
+              <p>{this.state.informations.acc ? this.state.informations.acc.value : ""}</p>
+              <p>{this.state.informations.prix ? this.state.informations.prix.value : ""}</p>
+              <p>{this.state.informations.url ? this.state.informations.url.value : ""}</p>
+              <img src={this.state.informations.url_image ? this.state.informations.url_image.value : ""} alt="activite" />
+              <p>{this.state.informations.accesme ? (this.state.informations.accesme.value === "0" ? "Non" : "Oui") : ""}</p>
+              <p>{this.state.informations.accesmv ? (this.state.informations.accesmv.value === "0" ? "Non" : "Oui") : ""}</p>
+              <p>{this.state.informations.accespmr ? (this.state.informations.accespmr.value === "0" ? "Non" : "Oui") : ""}</p>
           </div>
       );  
     } else {
